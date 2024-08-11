@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message to My WhatsApp</title>
+</head>
+
+<body>
+    <h1>Send Message to My WhatsApp</h1>
+
+    <form id="whatsappForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+
+        <button type="button" onclick="sendToWhatsApp()">Send to My WhatsApp</button>
+    </form>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = "972504442994"; // המספר האישי שלך עם קידומת בינלאומית, למשל: "972501234567"
+            const firstName = name.split(' ')[0]; // לוקח את השם הפרטי בלבד
+
+            const text = `שלום, זה הבוט של גל זו הודעה מ-${firstName}:\n\n${message}`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+
+</html>
